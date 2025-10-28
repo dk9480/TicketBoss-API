@@ -13,7 +13,7 @@ This project implements a tiny event-ticketing API with **Optimistic Concurrency
 
 1.  **Clone the Repository:**
     ```bash
-    git clone [YOUR_GITHUB_URL_HERE]
+    git clone https://github.com/dk9480/TicketBoss-API
     cd ticketboss-api
     ```
 2.  **Install Dependencies:**
