@@ -38,6 +38,7 @@ This project implements a tiny event-ticketing API with **Optimistic Concurrency
 | Decision | Justification |
 | :--- | :--- |
 | **Storage (MongoDB)** | Chosen for its performance and native support for fast, atomic updates on a single document, which is ideal for managing the central seat count. |
+| **Data Modeling (Mongoose)** } | Used as the ODM (Object Data Modeling) layer to define a strict structure for the database. `models/Event.js` sets up the `version` field (the OCC key), and `models/Reservation.js` enforces the integrity and required format of every individual booking record.
 | **Concurrency Control** | **Optimistic Concurrency Control (OCC)** is implemented to prevent over-selling. The `Event` document has a **`version`** field (managed by Mongoose). |
 | **Reserve Seats Logic** | The `POST /reservations` endpoint uses a single, atomic `Event.updateOne()` query. This query filters on two conditions simultaneously: `availableSeats: {$gte: requestedSeats}` **AND** `version: originalVersion`. If the version has changed due to a concurrent request, the update fails, and a **409 Conflict** is returned, ensuring data integrity. |
 | **Project Structure (MVC)** | API logic is separated into `routes/reservationRoutes.js` (URL path mapping) and `controllers/reservationController.js` (business logic). This ensures the `server.js` file remains clean and the code is highly modular, readable, and maintainable.
