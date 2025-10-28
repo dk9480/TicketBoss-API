@@ -81,11 +81,11 @@ All endpoints interact with the event "Node.js Meet-up" which has **500 total se
 * **Response Body Example (200 OK):**
     ```json
     {
-      "eventId": "node-meetup-2025",
-      "name": "Node.js Meet-up",
-      "totalSeats": 500,
-      "availableSeats": 42,
-      "reservationCount": 458,
-      "version": 14
+    "eventId": "node-meetup-2025",
+    "name": "Node.js Meet-up",
+    "totalSeats": 500,
+    "availableSeats": 350,
+    "reservationCount": 15,
+    "version": 21
     }
     ```
