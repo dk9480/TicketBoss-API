@@ -55,14 +55,14 @@ All endpoints interact with the event "Node.js Meet-up" which has **500 total se
 * **Request Body Example:**
     ```json
     {
-        "partnerId": "abc-corp",
-        "seats": 3
+        "partnerId": "company-X",
+        "seats": 10
     }
     ```
 * **Responses:**
     | Status | Scenario | Body Example |
     | :--- | :--- | :--- |
-    | **201 Created** | Success | `{"reservationId": "...", "seats": 3, "status": "confirmed"}` |
+    | **201 Created** | Success | `{"reservationId": "...", "seats": 10, "status": "confirmed"}` |
     | **409 Conflict** | Not enough seats OR a concurrent request beat this one (OCC failure). | `{"error": "Not enough seats left (Concurrency conflict, please retry)"}` |
     | **400 Bad Request** | `seats` is $\le 0$ or $> 10$. | `{"error": "Invalid request..."}` |
 
